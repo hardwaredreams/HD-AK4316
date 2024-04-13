@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Type"
+	  content="text/html; charset=utf-8">
+    <title>HD-AK4316 (Grove互換 I2Cアドレス変換ボード AE-LTC4316使用版)</title>
+  </head>
+
+  <body>
+  <H1>HD-AK4316</H1>
+  Grove互換I2Cアドレス変換ボード (AE-LTC4316使用版)
+<br />
+※ 準備作業中 ※ (まだリリースしていません。近々にリリース予定)
+<br />
+<br />
+
+  <H2>概要・特徴</H2>
+    <ul>
+	<li>I2C スレーブデバイスのアドレスを変換するボード</li>
+	<li>Grove互換コネクタを採用、中間に挿入するだけで簡単にアドレス変換</li>
+	<li>同じアドレスを持つ複数のスレーブデバイスを同じバスで共存可能に</li>
+	<li>変換アドレスは、ハードウェアで設定され、ソフトウェア操作は不要</li>
+	<li>最大 400KHzの高速モードに対応</li>
+	<li>秋月電子社製 <a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a> を使用 (チップは Analog Devices社(旧: LiearTechnology社)製 LTC4316を採用) </li>
+    </ul>
+    このボードは、<a href="../HDL4316G/">HDL4316G</a> と同じ機能のボードです。型番表示も似ているので、間違えない様ご注意ください。<br />
+    HD-AK4316では、LTC4316を直接実装せずに、秋月電子さんで販売されている <a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a>
+    の実装に対応したものです。また、チップ部品だけでなく、スルーホールに半田付けするリード線タイプの部品も使用できるように再設計しました。<br />
+    HD-AK4316 では、チップ部品を使った組立済み完成品 HD-AK4316-08 と、なにもパーツを実装をしていない基板のみ HD-AK4316-N の販売をします。
+    組立済み完成品 HD-AK4316-08 は、LTC4316 チップ単体で手配したときよりも、秋月電子さんの 
+	<a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a>を購入したほうが安価であるため、
+	<a href="../HDL4316G/">HDL4316G</a> よりも安価になっています。(チップの少量購入だと、単価が下がりませんね)<br />
+    <br />
+    HD-AK4316は、スレーブ側にあるデバイスのアドレスを異なるアドレスに変換します。 ひとつの I2Cバスに接続する
+    スレーブデイバスのアドレスが固定されていたり、同時接続した個数が設定可能なアドレス数より多い場合でも
+    ひとつの I2Cバスを共有できるようになる点は、<a href="../HDL4316G/">HDL4316G</a> と同一です。<br />
+    変換機能を使用しない場合は、リピータとしても使うことができます。(この場合は、抵抗の付替えが必要になります。)<br />
+	動作原理については <a href="i2c.html">HD-AK4316の動作について</a> のページにも書きましたので、参照してください。
+    <br />
+
+    <table>
+	<tr>
+	<td><a href="documents/HD-AK4316_top.jpg"><img src="documents/HD-AK4316_top_s.jpg"></a></td>
+	</tr><tr><td align="left"> 写真1 (表面)<br /></td>
+	</tr>
+	<tr>
+	<td><a href="documents/HD-AK4316_bottom.jpg"><img src="documents/HD-AK4316_bottom_s.jpg"></a></td>
+	</tr><tr>
+	<td align="left"> 写真2 (裏面)<br /></td>
+	</tr>
+    </table>
+
+    <h2>注意事項</h2>
+	<ul>
+		<li>注) 本品に接続用の Groveケーブルは付属していません。</li>
+		<li>注) 本基板にはケース等は付属していません。</li>
+		<li>注）本基板を中継することにより、ホスト側からアクセスするときのスレーブ アドレスが変わりますので、ドライバ・デバイスツリーなど ソフトウェアの修正が必要になります。</li>
+		<li>注) 本基板で変換の対象になるデバイスアドレスは 7bit modeに限ります。 10bit modeはサポートされていません。</li>
+		<li>注) 本基板でゼネラルコールアドレス (0x00) を使用することはできません。ゼネラルコールアドレスも 本基板で変換の対象になるため、CN2側のデバイスへ変換されたアドレスが送信されるためです。</li>
+		<li>注) 基板のみ HD-AK4316-N は、部品が一切含まれません。 ご自身で部品表をもとに部品を集められて、半田付け、組立が必要です。詳しくは 
+		<a href="build.html">組立のページ</a>を参照してください。</li>
+	</ul>
+  <H2>主な仕様</H2>
+
+  <H3>ABSOLUTE MAXIMUM RATINS</H3>
+	<table border="1">
+	<tr>
+		<th>項目</th>
+		<td>定格</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>入力電源電圧</th>
+		<td>-0.3 ～ 6V</td>
+		<td>GNDと VDDライン間</td>
+	</tr>
+	<tr>
+		<th>入出力電圧</th>
+		<td> -0.3 ～ 6V</td>
+		<td>SCL/SDAの入力および出力端子</td>
+	</tr>
+	<tr>
+		<th>動作温度範囲</th>
+		<td>0～70度</td>
+		<td></td>
+	</tr>
+	</table>
+	上記の範囲を超える状態は、デバイスへの永久的なダメージ・損傷を与える可能性がありますので、
+        この範囲を越えないようにしてください。 また、この値は、動作をする範囲ではありません。<br />
+                電圧は、 GNDが基準になります。<br />
+
+  <H3>電気的特性</H3>
+	<table border="1">
+	<tr>
+		<th>項目</th>
+		<td>定格</td>
+		<td>摘要</td>
+	</tr>
+	<tr>
+		<th>電源電圧</th>
+		<td>5V (標準)</td>
+		<td>ホストデバイス側から入力された 5Vが そのままスレーブデバイス側に供給されます</td>
+	</tr>
+	<tr>
+		<th>消費電流</th>
+		<td>0.6 ～ 2mA</td>
+		<td>動作時 I2Cバス アイドル時</td>
+	</tr>
+	<tr>
+		<th>SDA/SCL 電圧レベル</th>
+		<td>3.3V (標準)</td>
+		<td>動作時 I2Cバス アイドル時</td>
+	</tr>
+
+	<tr>
+		<th>I2C タイミング</th>
+		<td>最大 400KHz</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>I2C ホスト側プルアップ抵抗</th>
+		<td>未実装</td>
+		<td>プルアップ抵抗用パッドは用意してありません。プルアップが必要な場合は、基板外部に実装してください。基板のみから組み立てる場合は、 		<a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a> の裏面のジャンパを接続することにより利用可能です。</td>
+	</tr>
+	<tr>
+		<th>I2C 出力側プルアップ抵抗</th>
+		<td aligin="center">完成品版は、基板上に チップ抵抗で プルアップ抵抗 10kΩを実装しています。
+		<a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a> の裏面のジャンパは、接続しないで組み立てています。
+		基板のみから組み立てる場合、<a href="https://akizukidenshi.com/catalog/g/g115789/">AE-LTC4316</a>のジャンパを接続して
+		プルアップすることも可能です。<br />
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>基板サイズ</th>
+		<td>70 x 25 x 1.6mm</td>
+		<td>長さ x 幅 x 厚さ</td>
+	</tr>
+	<tr>
+		<th>重量</th>
+		<td aligin="right">  </td>
+		<td></td>
+	</tr>
+	</table>
+
+  <H2>使い方</H2>
+        使い方の詳細については <a href="usage.html">HD-AK4316 使い方</a> のページを参照してください。<br />
+	基本的な使い方は、本基板の CN1側Grove互換コネクタ側に M5Stackや Raspberry Piなどの I2Cバスにアクセスするコンピュータを
+	Groveケーブルで接続します。 CN2側のGrove互換コネクタ側には スレーブアドレスを変換したい I2Cでアクセス可能なセンサや、
+	ディスプレイなどのデバイスを Groveケーブルで接続します。 
+	なお、Groveケーブルは、本基板には付属していませんので、別途ご用意ください。<br />
+	本基板を経由すると ホスト側からは、変換されたアドレスでアクセスできます。 i2cdetect コマンド
+	(RaspberryPi OSの場合)などで確認してください。
+ 
+
+  <H3>動作概要</H3>
+
+	動作原理については <a href="i2c.html">HD-AK4316の動作について</a> のページにも書きましたので、参照してください。
+
+
+<br />
+	そのほか、動作の詳しい内容については、Analog Devices社から発行されている LTC4316のデータシートを参照してください。
+<br />
+   <H2>資料など</H2>
+
+ <UL>
+	<LI><a href="documents/HD-AK4316-08_schematic.pdf">回路図 (SMDパーツ実装・完成品)</a></LI>
+	<LI><a href="documents/HD-AK4316-N_schematic.pdf">回路図 (リードパーツ用基板のみ)</a></LI>
+      <LI><a href="documents/HD-AK4316-08-outline.pdf">基板外形図 (SMDパーツ実装・完成品)</a></LI>
+      <LI><a href="documents/HD-AK4316-N-outline.pdf">基板外形図 (リードパーツ用基板のみ)</a></LI>
+      <LI><a href="documents/bomlist.ods">BOMLIST</a></LI>
+      <LI><a href="documents/gerber-drill.zip">ガーバー および ドリルリスト・ドリルデータ</a></LI>
+   <LI><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/4316fa.pdf">LTC4316 データシート</a>
+   (Analog Devices社のサイトにリンクしています)
+      </LI>
+  </UL>  
+
+   <H2>そのほか</H2>
+
+ <UL>
+	<LI>HD-AK4316-08 は、RaspberryPi 4 に接続し i2cdetect コマンドにてアドレス変換が機能していることを確認しています。</LI>
+	<LI>HD-AK4316-08 は、すべて手半田による手作りです。チップ部品による実装版です。個体によって 半田付けの仕上がりに差がありますので、ご了承ください。</LI>
+  </UL>  
+
+
+	<hr />
+	<i>Copyright 2024 (C) By HardwareDreams</i>
+
+  </body>
+
+
+</HTML>
