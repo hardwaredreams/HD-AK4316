@@ -1534,7 +1534,7 @@
     (property "Reference" "U2" (at 57.785 147.32 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "MIC5219-3.3YM5" (at 71.12 161.29 0)
+    (property "Value" "TPS74033" (at 71.12 161.29 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "generic:generic-SOT23-5" (at 60.96 153.035 0)
